@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    </div> -->
+    <div style="padding: 30px">自定义表单</div>
+    <router-view />
   </div>
 </template>
 

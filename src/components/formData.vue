@@ -50,7 +50,7 @@ export default {
   methods: {
     // 新增
     addRow() {
-      this.copyRow();
+      if (this.tablesForm.rows.length !== 0) this.copyRow();
       this.copy_rows[0].id = parseInt(Math.random() * 100);
       console.log(this.copy_rows);
       this.tablesForm.rows.push(this.copy_rows);
@@ -79,10 +79,12 @@ export default {
     },
     // 删除
     delRow() {
+      if (this.tablesForm.rows.length === 1) {
+        this.copy_rows = this.tablesForm.rows[0];
+      }
       this.tablesForm.rows = this.tablesForm.rows.filter(
         (item) => !this.checkeds.includes(item[0].id)
       );
-      console.log(this.tablesForm.rows);
       this.checkeds = [];
       const ck = document.querySelectorAll(".checkbox");
       ck.forEach((item) => {
